@@ -1,0 +1,8 @@
+.ant-table-thead > tr > th {
+  background-color: #889ffb !important;
+  color: rgb(255, 255, 255);
+}
+
+.ant-table-cell ::before {
+  background-color: 'transparent' !important;
+}

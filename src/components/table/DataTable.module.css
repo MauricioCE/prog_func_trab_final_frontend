@@ -1,0 +1,21 @@
+.ant-table-thead > tr > th {
+    background-color: #ab753ea3 !important;
+    color: white;
+}
+
+.row_white {
+    background-color: white;
+}
+
+.row_blue {
+    background-color: #f1f5ff;
+}
+
+th {
+    color: white !important;
+}
+
+.table thead > tr > th {
+  background-color: #fff !important; 
+  color: white;
+}

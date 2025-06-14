@@ -1,0 +1,20 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#root {
+    height: 100%;
+}
+
+html {
+    --primary-color: #3e3e3e;
+    --bg-color: #f6f8ff;
+    background-color: #f3f6f9;
+}
+
+html, body {
+    height: 100%;
+}

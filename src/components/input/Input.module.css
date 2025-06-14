@@ -1,0 +1,26 @@
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--primary-color);
+}
+
+.label span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.label input {
+    padding: 15px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    box-shadow: 0 0 4px  rgba(0, 0, 0, 0.25);
+    outline: none;
+}
+
+.label input:focus{
+    box-shadow: 0 0 4px 1px  rgba(47, 87, 245, 0.752);
+}
