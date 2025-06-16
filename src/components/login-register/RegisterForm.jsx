@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form, Input, Button, Typography, message } from 'antd';
-import { useNavigate } from 'react-router-dom';
 import api from '../../api/api';
 import Credential from '../../helpers/credencial';
 
@@ -9,7 +8,6 @@ const { Title } = Typography;
 const RegisterForm = () => {
     const [loading, setLoading] = useState(false);
     const [form] = Form.useForm();
-    const navigate = useNavigate();
 
     const onFinish = async (values) => {
         if (!Credential.isValidEmail(values.email)) {
@@ -29,7 +27,7 @@ const RegisterForm = () => {
 
         setLoading(true);
         try {
-            const response = await api.post('/api/users/register', values);
+            await api.post('/api/users/register', values);
             message.success('Usuário registrado com sucesso!');
             form.resetFields(); // Limpa os campos do formulário
         } catch (error) {

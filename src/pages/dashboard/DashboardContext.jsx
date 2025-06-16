@@ -1,11 +1,11 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import api from "../../api/api";
 import dayjs from 'dayjs';
 
 export const DashboardContext = createContext();
 
 // eslint-disable-next-line react/prop-types
-export const DashboardProvider = ({ children, userId }) => {
+export const DashboardProvider = ({ children }) => {
     // Array com todos os itens da tabela
     // Array com todos os itens da tabela
     const [tableData, setTableData] = useState([]);
@@ -29,9 +29,12 @@ export const DashboardProvider = ({ children, userId }) => {
     const showTagModal = () => setTagModalVisible(true);
     const closeTagModal = () => setTagModalVisible(false);
 
-    useEffect(() => {
-        fetchTableData();
-    }, [userId]);
+
+    function clear() {
+        setTableData([])
+        setTags([])
+    }
+
 
     const fetchTableData = async () => {
         try {
@@ -98,8 +101,9 @@ export const DashboardProvider = ({ children, userId }) => {
                 },
             });
 
-            const newData = tableData.filter((item) => item.key !== itemToDelete.key);
-            setTableData(newData);
+            // const newData = tableData.filter((item) => item.key !== itemToDelete.key);
+            // setTableData(newData);
+            fetchTableData();
             setItemToDelete(null);
         } catch (error) {
             alert("Erro ao deletar item.");
@@ -174,6 +178,8 @@ export const DashboardProvider = ({ children, userId }) => {
                 closeTagModal,
                 tags,
                 setTags,
+                fetchTableData,
+                clear
             }}
         >
             {children}

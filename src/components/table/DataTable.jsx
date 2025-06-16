@@ -85,7 +85,6 @@ const DataTable = () => {
             <DeleteOutlined
               style={{ color: '#ff4d4f', cursor: 'pointer' }}
               onClick={() => {
-                console.log(record)
                 setItemToDelete(record);
                 showConfirmationModal();
               }}

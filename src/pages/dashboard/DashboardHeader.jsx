@@ -1,9 +1,13 @@
 import { Row } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react';
+import { DashboardContext } from '../../pages/dashboard/DashboardContext';
 
 import api from "../../api/api";
 
 const DashboardHeader = () => {
+
+
     const navigate = useNavigate();
 
     const logout = () => {

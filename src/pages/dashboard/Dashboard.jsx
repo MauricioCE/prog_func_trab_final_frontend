@@ -4,17 +4,18 @@ import AddButton from "../../components/buttons/AddButton";
 import ItemModal from "../../components/modal/ItemModal";
 import DataTable from "../../components/table/DataTable";
 import DashboardHeader from "./DashboardHeader";
-import DashboardCards from "./DashboardCards";
-
 import ConfirmationModal from '../../components/modal/ConfirmationModal';
-
 import { useContext } from 'react';
 import { DashboardContext } from '../../pages/dashboard/DashboardContext';
 import TagModal from '../../components/modal/TagModal';
 
 const Dashboard = () => {
 
-    const { showItemModal, showTagModal } = useContext(DashboardContext);
+    const { showItemModal, showTagModal, fetchTableData } = useContext(DashboardContext);
+
+    fetchTableData()
+
+    const user_id = localStorage.getItem('id')
 
     return (
         <Col style={{ padding: '20px' }}>
@@ -31,7 +32,7 @@ const Dashboard = () => {
                         <TagModal />
                         <ConfirmationModal></ConfirmationModal>
                     </Row>
-                    <DataTable />
+                    <DataTable key={user_id} />
                 </Col>
             </Row>
         </Col>

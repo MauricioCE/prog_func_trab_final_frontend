@@ -30,6 +30,7 @@ const LoginForm = () => {
             const response = await api.post('http://localhost:4000/api/users/login', { email, password });
             const { token, user_id } = response.data;
             localStorage.setItem('token', token);
+            console.log(token)
             localStorage.setItem('id', user_id);
             message.success('Login realizado com sucesso!');
             form.resetFields(); // Limpa os campos do formulário

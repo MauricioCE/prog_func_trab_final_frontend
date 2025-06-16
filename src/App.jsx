@@ -20,7 +20,7 @@ const PrivateRoute = () => {
 };
 
 function App() {
-
+  const user_id = localStorage.getItem('id')
   return (
     <DashboardProvider>
       <Router>
@@ -28,8 +28,8 @@ function App() {
           <Route path="/login" element={<LoginRoute />} />
 
           <Route element={<PrivateRoute />}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard key={user_id} />} />
+            <Route path="/dashboard" element={<Dashboard key={user_id} />} />
           </Route>
 
           <Route path="*" element={<NotFoundPage />} />
